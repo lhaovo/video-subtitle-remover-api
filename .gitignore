@@ -1,0 +1,56 @@
+# Python caches
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Virtual environments
+.venv/
+.venv-*/
+venv/
+videoEnv/
+
+# API runtime data
+api_data/
+uploads/
+outputs/
+*.log
+
+# Local config and caches
+.condarc
+.env
+.env.*
+*.tmp
+.cache/
+
+# GUI/original desktop app assets excluded from the API repo
+ui/
+gui.py
+design/
+test/
+.github/
+
+# Large model weights and generated model binaries
+backend/models/**/*.pth
+backend/models/**/*.pt
+backend/models/**/*.pdiparams
+backend/models/**/fs_manifest.csv
+
+# Bundled desktop ffmpeg binaries are not needed by the API Docker image.
+backend/ffmpeg/linux_x64/
+backend/ffmpeg/macos/
+backend/ffmpeg/win_x64/
+
+# Build/package output
+build/
+dist/
+*.egg-info/
+
+# Editor and OS files
+.idea/
+.vscode/
+*.iml
+.DS_Store
+Thumbs.db

@@ -1,0 +1,4 @@
+-r requirements-runtime.txt
+pyside6-fluent-widgets==1.7.7
+darkdetect
+je-showinfilemanager==1.1.6a4

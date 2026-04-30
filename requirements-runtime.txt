@@ -1,0 +1,14 @@
+filesplit==3.0.2
+opencv-python-headless==4.11.0.86
+scikit-image==0.25.2
+tqdm==4.67.1
+numpy==2.2.5
+av==17.0.0
+einops==0.8.1
+paddleocr==3.4.0
+matplotlib
+Pillow
+scipy
+requests
+
+# torch and torchvision are installed separately in Dockerfile for platform-specific CUDA wheels.

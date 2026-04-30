@@ -1,0 +1,30 @@
+services:
+  video-subtitle-remover:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+      args:
+        CUDA_VERSION: "12.4"
+        HARDWARE_ACCELERATOR: cuda
+    image: video-subtitle-remover-api:latest
+    container_name: video-subtitle-remover
+    restart: unless-stopped
+    gpus: all
+    ports:
+      - "8332:8332"
+    environment:
+      VSR_API_WORKERS: "1"
+      VSR_DATA_DIR: /data
+      VSR_FFMPEG_PATH: /usr/bin/ffmpeg
+      PADDLE_PDX_DISABLE_MODEL_SOURCE_CHECK: "True"
+      PYTHONUNBUFFERED: "1"
+    volumes:
+      - ./api_data:/data
+      - /mnt/video-manager:/videos
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
