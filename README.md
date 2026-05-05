@@ -72,6 +72,7 @@ docker compose down
 ```text
 端口: 8332
 数据目录: ./api_data -> /data
+video-manager 处理中目录: ../video_manager/data/processing -> /data/processing
 视频管理目录: /mnt/video-manager -> /videos
 GPU: gpus: all
 ```
@@ -85,6 +86,8 @@ VSR_WEB_DIR=web_debug
 VSR_FFMPEG_PATH=/usr/bin/ffmpeg
 PADDLE_PDX_DISABLE_MODEL_SOURCE_CHECK=True
 ```
+
+`video-manager` 会把剪辑后的中间文件写到本机 `data/processing`，再把 `/data/processing/...` 路径传给 VSR。VSR 容器必须把同一个宿主机目录挂到同一个容器路径 `/data/processing`，否则“先剪辑再去字幕”的任务会报 `input file not found`。
 
 如果机器没有 NVIDIA GPU，需要移除 `docker-compose.yml` 中的 `gpus: all` 和 `deploy.resources.reservations.devices`，并把 Docker build 参数 `HARDWARE_ACCELERATOR` 改成 `cpu`。
 
