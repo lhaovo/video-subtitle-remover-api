@@ -21,7 +21,8 @@ services:
     volumes:
       - ./api_data:/data
       - ${VIDEO_MANAGER_PROCESSING_DIR:-../video_manager/data/processing}:/data/processing
-      - /mnt/video-manager:/videos
+      - /mnt/video-manager/unprocessed:/videos/unprocessed
+      - /mnt/video-manager/processed:/videos/processed
     deploy:
       resources:
         reservations:

@@ -73,7 +73,8 @@ docker compose down
 端口: 8332
 数据目录: ./api_data -> /data
 video-manager 处理中目录: ../video_manager/data/processing -> /data/processing
-视频管理目录: /mnt/video-manager -> /videos
+未处理视频目录: /mnt/video-manager/unprocessed -> /videos/unprocessed
+已处理视频目录: /mnt/video-manager/processed -> /videos/processed
 GPU: gpus: all
 ```
 
